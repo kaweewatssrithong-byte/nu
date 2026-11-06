@@ -1,0 +1,256 @@
+*{box-sizing:border-box}
+:root{--orange:#f28a24;--orange-light:#ffad55;--ink:#202226;--muted:#858991;--line:#e9eaed}
+html,body{margin:0;min-height:100%;font-family:'Prompt','Kanit',sans-serif;color:#24262b}
+body{min-height:100vh;background:#eceef1;display:grid;place-items:center;padding:34px;overflow-x:hidden;position:relative}
+.ambient{position:fixed;border-radius:50%;filter:blur(2px);pointer-events:none}
+.ambient-one{width:430px;height:430px;background:radial-gradient(circle,rgba(242,138,36,.15),transparent 68%);top:-170px;right:-110px}
+.ambient-two{width:390px;height:390px;background:radial-gradient(circle,rgba(80,88,100,.10),transparent 70%);bottom:-190px;left:-120px}
+.page-shell{width:min(1120px,100%);position:relative;z-index:1}
+.login-layout{display:grid;grid-template-columns:1.02fr .98fr;min-height:690px;background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 28px 80px rgba(28,31,36,.16),0 4px 14px rgba(28,31,36,.05)}
+.brand-panel{background:linear-gradient(145deg,rgba(30,32,36,.91),rgba(23,25,29,.96)),url('../images/naresuan-campus.png') center/cover no-repeat,linear-gradient(145deg,#292c31 0%,#1c1e22 58%,#17191d 100%);color:#fff;padding:39px 48px 30px;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.brand-panel:after{content:"";position:absolute;width:430px;height:430px;border-radius:50%;border:1px solid rgba(255,255,255,.07);right:-220px;top:180px;box-shadow:0 0 0 35px rgba(255,255,255,.018),0 0 0 70px rgba(255,255,255,.014)}
+.brand-top{display:flex;align-items:center;gap:13px;position:relative;z-index:2}
+.university-logo{width:54px;height:54px;object-fit:contain;border-radius:50%;background:#fff;padding:3px;box-shadow:0 5px 18px rgba(0,0,0,.22);flex:none}
+.brand-name{font-size:18px;letter-spacing:.1px}
+.brand-name span{color:var(--orange-light)}
+.brand-caption{letter-spacing:1.55px}
+.brand-mark{width:40px;height:40px;border-radius:12px;background:linear-gradient(145deg,#ffad55,#e97812);display:flex;align-items:flex-end;justify-content:center;gap:3px;padding:10px;box-shadow:0 7px 20px rgba(242,138,36,.22)}
+.brand-mark span{display:block;width:4px;border-radius:4px;background:#fff}
+.brand-mark span:nth-child(1){height:10px}.brand-mark span:nth-child(2){height:17px}.brand-mark span:nth-child(3){height:13px}
+.brand-name{font:600 17px 'Kanit',sans-serif;letter-spacing:1.4px;margin:0}.brand-name span,.mobile-brand strong span{color:var(--orange)}
+.brand-caption{font-size:8px;letter-spacing:2.1px;color:#9da1a8;margin:1px 0 0}
+.brand-content{margin:auto 0;position:relative;z-index:2;padding:50px 0 42px}
+.eyebrow{display:flex;align-items:center;gap:10px;color:#c2c5ca;font-size:10px;letter-spacing:2px;font-weight:500}
+.eyebrow-line{width:25px;height:2px;background:var(--orange)}
+.brand-content h1{font:500 clamp(38px,4vw,51px)/1.3 'Kanit',sans-serif;letter-spacing:.2px;margin:20px 0 13px}
+.brand-content h1 span{color:var(--orange-light)}
+.brand-description{font-size:13px;line-height:2;color:#b3b6bd;max-width:390px;margin:0}
+.feature-list{display:grid;gap:19px;margin-top:43px}
+.feature-item{display:flex;align-items:center;gap:14px}
+.feature-icon{width:38px;height:38px;border:1px solid rgba(255,255,255,.13);border-radius:10px;display:grid;place-items:center;color:var(--orange-light);font:500 11px 'Kanit',sans-serif;background:rgba(255,255,255,.035)}
+.feature-item strong{display:block;font:500 12px 'Kanit',sans-serif;letter-spacing:.3px;color:#f0f1f3}
+.feature-item small{display:block;font-size:10px;color:#969ba4;margin-top:2px}
+.brand-footer{display:flex;align-items:center;gap:8px;color:#9da1a8;font-size:10px;position:relative;z-index:2}
+.status-dot{width:7px;height:7px;background:#6bc49a;border-radius:50%;box-shadow:0 0 0 4px rgba(107,196,154,.12)}
+.footer-version{margin-left:auto;font-size:9px;letter-spacing:1px;color:#747982}
+.decor{position:absolute;pointer-events:none}.decor-ring{width:240px;height:240px;border:1px solid rgba(242,138,36,.13);border-radius:50%;right:-95px;bottom:75px}.decor-grid{width:150px;height:150px;right:30px;top:245px;opacity:.15;background-image:linear-gradient(rgba(255,255,255,.15) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.15) 1px,transparent 1px);background-size:17px 17px;mask-image:linear-gradient(135deg,#000,transparent)}
+.form-panel{padding:39px 58px 25px;display:flex;flex-direction:column;background:#fff}
+.form-topline{display:flex;align-items:center;justify-content:space-between;color:#9a9da4;font-size:10px}
+.secure-label{display:flex;align-items:center;gap:7px;letter-spacing:1.2px;font-size:9px;font-weight:600;color:#727780}
+.lock-icon{color:var(--orange);font-size:13px}.help-text{color:#a1a4aa}
+.form-content{width:100%;max-width:365px;margin:auto}
+.mobile-brand{display:none}
+.mobile-brand .university-logo{width:42px;height:42px;box-shadow:0 3px 12px rgba(0,0,0,.10)}
+.mobile-brand strong{font:600 16px 'Kanit',sans-serif;color:#25272c}
+.mobile-brand strong span{color:var(--orange)}
+.welcome-icon{width:48px;height:48px;border-radius:15px;background:#fff4e9;border:1px solid #ffe4ca;display:grid;place-items:center;color:#e77c19;margin-bottom:23px}
+.user-symbol{font-size:24px;transform:rotate(0deg)}
+.form-kicker{font-size:11px;color:#e48122;font-weight:500;margin:0 0 4px;letter-spacing:.3px}
+.form-content h2{font:500 31px 'Kanit',sans-serif;margin:0;color:#25272c}
+.form-subtitle{font-size:11px;color:#969aa2;margin:4px 0 30px}
+.field-group{margin-bottom:21px}
+.field-group label,.label-row label{font-size:11px;font-weight:500;color:#41444a;display:block;margin-bottom:9px}
+.field-group label span,.required-note span{color:#e77c19}
+.label-row{display:flex;align-items:center;justify-content:space-between}
+.label-row label{margin-bottom:9px}
+.text-link{font-size:10px;color:#df791b;text-decoration:none;margin-bottom:9px}.text-link:hover{text-decoration:underline}
+.input-wrap{height:49px;border:1px solid #e4e6e9;border-radius:9px;display:flex;align-items:center;position:relative;transition:.2s;background:#fff}
+.input-wrap:focus-within{border-color:#efa04f;box-shadow:0 0 0 3px rgba(242,138,36,.11)}
+.input-icon{width:45px;display:grid;place-items:center;flex:none;color:#a2a6ad}
+.input-icon svg,.toggle-password svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.input-wrap input{height:100%;min-width:0;flex:1;border:0;outline:0;font:400 11px 'Prompt',sans-serif;color:#34373d;background:transparent}
+.input-wrap input::placeholder{color:#b7bbc1}
+.toggle-password{border:0;background:transparent;color:#9da2aa;width:43px;height:100%;cursor:pointer;display:grid;place-items:center}
+.toggle-password:hover{color:#e77c19}
+.options-row{display:flex;align-items:center;justify-content:space-between;margin:2px 0 24px}
+.remember{display:flex!important;align-items:center;gap:8px!important;margin:0!important;font-size:10px!important;color:#777c84!important;cursor:pointer}
+.remember input{position:absolute;opacity:0;width:1px;height:1px}
+.custom-check{width:15px;height:15px;border:1px solid #d4d7dc;border-radius:4px;display:inline-block;position:relative;transition:.2s}
+.remember input:checked+.custom-check{background:var(--orange);border-color:var(--orange)}
+.remember input:checked+.custom-check:after{content:"";position:absolute;width:6px;height:3px;border-left:1.5px solid white;border-bottom:1.5px solid white;transform:rotate(-45deg);left:4px;top:4px}
+.required-note{font-size:9px;color:#a5a8ae}
+.submit-button{width:100%;height:50px;border:0;border-radius:9px;background:linear-gradient(100deg,#f49a3b,#e97816);color:#fff;font:500 13px 'Kanit',sans-serif;display:flex;align-items:center;justify-content:center;position:relative;cursor:pointer;box-shadow:0 8px 18px rgba(230,123,27,.2);transition:transform .2s,box-shadow .2s,filter .2s}
+.submit-button:hover{transform:translateY(-2px);box-shadow:0 11px 23px rgba(230,123,27,.28);filter:saturate(1.08)}
+.submit-button:active{transform:translateY(0)}
+.button-arrow{position:absolute;right:18px;font-size:20px;font-family:Arial,sans-serif;font-weight:300;transition:transform .2s}
+.submit-button:hover .button-arrow{transform:translateX(4px)}
+.form-divider{display:flex;align-items:center;gap:12px;margin:26px 0 15px;color:#a8abb1;font-size:9px;white-space:nowrap}
+.form-divider:before,.form-divider:after{content:"";height:1px;background:#eceef0;flex:1}
+.security-note{text-align:center;font-size:9px;color:#a0a4ab;margin:0}
+.shield{color:#e58a32;margin-right:5px}
+.form-footer{display:flex;justify-content:space-between;gap:10px;color:#b0b3b9;font-size:8px}
+.alert{font-size:10px;line-height:1.7;padding:10px 12px;border-radius:8px;margin:-14px 0 18px}
+.alert-error{background:#fff0ef;color:#b43e36;border:1px solid #ffd8d5}
+.alert-info{background:#fff7ed;color:#9a5b18;border:1px solid #ffe2bd}
+@media(max-width:850px){body{padding:20px}.login-layout{grid-template-columns:.9fr 1.1fr;min-height:650px}.brand-panel{padding:32px 30px 25px}.form-panel{padding:32px 35px 23px}.brand-content h1{font-size:42px}}
+@media(max-width:650px){body{padding:14px;display:block}.page-shell{margin:12px auto}.login-layout{display:block;min-height:0;border-radius:17px}.brand-panel{display:none}.form-panel{padding:24px 24px 20px;min-height:690px}.form-topline{margin-bottom:20px}.mobile-brand{display:flex;align-items:center;gap:10px;margin-bottom:34px}.mobile-brand .brand-mark{width:35px;height:35px}.mobile-brand strong{font:600 15px 'Kanit',sans-serif;letter-spacing:1px}.form-content{margin:0 auto;max-width:390px}.welcome-icon{margin-bottom:17px}.form-content h2{font-size:29px}.form-subtitle{margin-bottom:25px}.form-footer{margin-top:36px}.help-text{font-size:9px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+
+/* Full-screen campus login */
+body{display:block;place-items:initial;padding:0;min-height:100vh;overflow-x:hidden;background:#171a20}
+.page-shell{width:100%;min-height:100vh;margin:0}
+.login-layout{position:relative;display:block;width:100%;min-height:100vh;border-radius:0;overflow:hidden;background:#171a20;box-shadow:none}
+.brand-panel{position:absolute;inset:0;display:flex;width:auto;min-height:100%;padding:clamp(34px,5vw,76px) clamp(28px,7vw,112px);background:linear-gradient(90deg,rgba(19,22,28,.76) 0%,rgba(21,24,30,.55) 43%,rgba(20,23,29,.19) 100%),url('../images/naresuan-campus.png') center/cover no-repeat,linear-gradient(145deg,#24272c,#15171a)}
+.brand-panel:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(18,21,27,.12) 0%,rgba(22,25,31,.06) 45%,rgba(20,23,29,.04) 100%);z-index:1}
+.brand-panel:after{right:24%;top:15%;width:min(48vw,650px);height:min(48vw,650px);border-color:rgba(255,255,255,.09);box-shadow:0 0 0 45px rgba(255,255,255,.025),0 0 0 90px rgba(255,255,255,.018)}
+.brand-top,.brand-content,.brand-footer{z-index:2}
+.brand-content{width:min(48vw,650px);margin:auto 0;padding:64px 0 48px;animation:hero-in .8s cubic-bezier(.2,.7,.25,1) both}
+.brand-content h1{font-size:clamp(54px,6.3vw,88px);line-height:1.2;margin:20px 0}
+.brand-description{font-size:15px;max-width:500px}
+.feature-list{gap:17px;margin-top:38px}
+.form-panel{position:absolute;z-index:4;top:50%;right:clamp(24px,7vw,120px);transform:translateY(-50%);width:min(490px,calc(100% - 48px));min-height:0;padding:39px 42px 27px;border:1px solid rgba(255,255,255,.72);border-radius:22px;background:rgba(255,255,255,.97);box-shadow:0 28px 90px rgba(0,0,0,.28);backdrop-filter:blur(18px);animation:card-in .7s cubic-bezier(.2,.7,.25,1) .08s both}
+.form-content{max-width:380px}
+.form-content h2{font-size:36px}
+.form-subtitle{font-size:12px;margin-bottom:27px}
+.field-group{margin-bottom:19px}
+.input-wrap{height:54px;border-radius:11px}
+.input-wrap input{font-size:13px}
+.submit-button{height:54px;border-radius:11px;font-size:15px;overflow:hidden;transition:transform .22s,box-shadow .22s,filter .22s}
+.submit-button:hover{transform:translateY(-2px);box-shadow:0 13px 27px rgba(230,123,27,.32)}
+.submit-button:active{transform:scale(.985);box-shadow:0 3px 10px rgba(230,123,27,.2)}
+.submit-button:focus-visible,.toggle-password:focus-visible{outline:3px solid rgba(242,138,36,.3);outline-offset:3px}
+.submit-button.is-loading{cursor:wait;filter:saturate(.85)}
+.submit-button.is-loading .button-arrow{opacity:0}
+.submit-button.is-loading:after{content:"";position:absolute;width:18px;height:18px;border:2px solid rgba(255,255,255,.45);border-top-color:#fff;border-radius:50%;animation:login-spin .7s linear infinite}
+.input-wrap:focus-within{transform:translateY(-1px);transition:transform .18s,border-color .2s,box-shadow .2s}
+.input-wrap.field-invalid{border-color:#d9534f;box-shadow:0 0 0 3px rgba(217,83,79,.1)}
+.form-topline{margin-bottom:8px}
+.form-footer{font-size:9px;margin-top:23px}
+.ambient{z-index:1;opacity:.45;animation:ambient-drift 12s ease-in-out infinite alternate}
+.ambient-one{right:-8vw;top:-22vh}.ambient-two{left:-8vw;bottom:-24vh;animation-delay:-5s}
+.alert-error{animation:error-in .35s ease both}
+@keyframes hero-in{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes card-in{from{opacity:0;transform:translate(18px,-50%)}to{opacity:1;transform:translate(0,-50%)}}
+@keyframes ambient-drift{from{transform:translate3d(-12px,-8px,0) scale(.96)}to{transform:translate3d(16px,14px,0) scale(1.04)}}
+@keyframes login-spin{to{transform:rotate(360deg)}}
+@keyframes error-in{0%,100%{transform:translateX(0)}25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+@media(max-width:1000px) and (min-width:651px){.brand-panel{padding:30px 34px}.brand-content{width:45vw}.brand-content h1{font-size:clamp(44px,6vw,64px)}.form-panel{right:28px;width:min(440px,48vw);padding:34px 30px}.feature-list{gap:12px}.feature-item small{font-size:9px}}
+@media(max-width:650px){body{display:block;padding:0;min-height:100vh}.page-shell{margin:0;width:100%}.login-layout{display:block;min-height:100vh;border-radius:0;overflow:visible}.brand-panel{position:absolute;inset:0;display:flex!important;min-height:100vh;padding:20px;background-position:center}.brand-panel:before{background:linear-gradient(180deg,rgba(18,21,27,.72),rgba(18,21,27,.88))}.brand-panel .brand-top,.brand-panel .brand-content,.brand-panel .brand-footer{display:none}.form-panel{position:relative;top:auto;right:auto;transform:none;width:min(460px,calc(100% - 28px));min-height:0;margin:22px auto;padding:23px 23px 20px;border-radius:18px;animation:card-mobile-in .55s ease both}.form-topline{margin-bottom:13px}.mobile-brand{display:flex;align-items:center;gap:10px;margin:0 0 24px}.mobile-brand .university-logo{width:42px;height:42px}.form-content{margin:0 auto}.welcome-icon{margin-bottom:14px}.form-content h2{font-size:30px}.form-subtitle{margin-bottom:21px}.form-footer{margin-top:25px}.ambient{opacity:.25}@keyframes card-mobile-in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}}
+@media(prefers-reduced-motion:reduce){.brand-content,.form-panel,.ambient,.alert-error{animation:none!important}.submit-button,.input-wrap{transition:none!important}}
+
+/* Stronger university branding */
+.brand-top{gap:18px}
+.brand-top .university-logo{width:76px;height:76px;padding:4px}
+.brand-top .brand-name{font-size:23px;letter-spacing:1.8px}
+.brand-top .brand-caption{font-size:10px;letter-spacing:2.6px;margin-top:4px}
+@media(max-width:1000px) and (min-width:651px){.brand-top .university-logo{width:66px;height:66px}.brand-top .brand-name{font-size:20px}}
+@media(max-width:650px){.mobile-brand .university-logo{width:54px;height:54px}.mobile-brand strong{font-size:19px!important;letter-spacing:1.2px}.brand-top .university-logo{width:58px;height:58px}}
+
+/* Warm light-gray login panel with a subtle university-orange accent */
+.form-panel{background:rgba(247,246,243,.97);border:1px solid rgba(255,255,255,.88);border-top:5px solid var(--orange);color:#30343b;box-shadow:0 28px 90px rgba(0,0,0,.30)}
+.form-topline,.form-footer,.form-subtitle,.security-note,.help-text{color:#737981}
+.secure-label{color:#51565e}
+.form-content h2{color:#24282e}
+.field-group label,.label-row label{color:#343941}
+.form-divider{color:#777d85}
+.form-divider:before,.form-divider:after{background:#d9d9d5}
+.welcome-icon{background:#fff1e3;border-color:#ffdfc1;color:#df741f}
+.form-footer{border-top:1px solid rgba(49,53,59,.12);padding-top:14px}
+.input-wrap{background:#fff;border-color:#d9dce1}
+.input-wrap input{color:#30343b}
+.input-icon,.toggle-password{color:#89909a}
+.mobile-brand strong{color:#30343b}
+.mobile-brand strong span{color:#df741f}
+.alert-error{background:#fff0ef;color:#983d37;border-color:#f0cbc7}
+.alert-info{background:#fff5e8;color:#80531c;border-color:#ecd8b6}
+
+/* Google single sign-on */
+.login-or{display:flex;align-items:center;gap:12px;margin:18px 0 12px;color:#858b93;font-size:10px;text-align:center}
+.login-or:before,.login-or:after{content:"";height:1px;flex:1;background:#dedfdf}
+.google-login-button{height:50px;width:100%;display:flex;align-items:center;justify-content:center;gap:11px;border:1px solid #d7dbe0;border-radius:10px;background:#fff;color:#30343b;text-decoration:none;font:500 13px 'Prompt',sans-serif;transition:background .18s,border-color .18s,box-shadow .18s,transform .18s}
+.google-login-button:hover{background:#fafafa;border-color:#b9bec5;box-shadow:0 5px 14px rgba(35,40,48,.08);transform:translateY(-1px)}
+.google-login-button:focus-visible{outline:3px solid rgba(66,133,244,.24);outline-offset:2px}
+.google-g{font:700 22px Arial,sans-serif;line-height:1;background:conic-gradient(from -42deg,#4285f4 0 27%,#34a853 27% 48%,#fbbc05 48% 70%,#ea4335 70% 86%,#4285f4 86%);color:transparent;background-clip:text;-webkit-background-clip:text}
+.google-login-hint{margin:8px 0 0;text-align:center;color:#858b93;font-size:9px}
+@media(max-width:650px){.login-or{margin-top:15px}.google-login-button{height:47px}}
+
+/* Login refresh: university orange, charcoal and a clearer seal */
+.login-layout:before{
+ content:"";position:absolute;inset:0;z-index:3;pointer-events:none;
+ background:
+  linear-gradient(135deg,transparent 0 69%,rgba(255,132,0,.98) 69.2% 83%,rgba(29,32,37,.94) 83.2% 94%,transparent 94.2%) top right/270px 220px no-repeat,
+  linear-gradient(135deg,transparent 0 12%,rgba(255,132,0,.96) 12.2% 25%,rgba(35,38,43,.88) 25.2% 38%,transparent 38.2%) bottom left/340px 235px no-repeat;
+}
+.brand-panel{background:linear-gradient(90deg,rgba(12,15,21,.76) 0%,rgba(14,17,23,.64) 48%,rgba(14,17,23,.48) 100%),linear-gradient(180deg,rgba(12,15,21,.20) 0%,rgba(12,15,21,.24) 100%),url('../images/naresuan-campus-sunset.png') center/cover no-repeat}
+.brand-panel:before{background:linear-gradient(180deg,rgba(12,15,21,.16) 0%,transparent 40%,rgba(12,15,21,.22) 100%)}
+.brand-top{gap:24px}
+.brand-top .university-logo{
+ width:118px;height:118px;padding:0;object-fit:contain;border-radius:50%;
+ background:#fff;border:5px solid rgba(255,255,255,.98);
+ box-shadow:0 9px 28px rgba(0,0,0,.35),0 0 0 1px rgba(255,255,255,.6);
+ image-rendering:auto;flex:none
+}
+.brand-top>div{border-left:2px solid rgba(255,255,255,.88);padding-left:27px}
+.brand-top .brand-name{font-size:clamp(21px,1.8vw,29px);letter-spacing:1.6px}
+.brand-top .brand-caption{font-size:14px;letter-spacing:2.5px;margin-top:4px;color:#e0e2e6}
+.brand-content h1{font-weight:600;text-shadow:0 3px 18px rgba(0,0,0,.18)}
+.brand-content h1 span{color:#ff8a00}
+.brand-description{font-size:clamp(15px,1.2vw,19px);color:#f1f1f2;text-shadow:0 2px 8px rgba(0,0,0,.55)}
+.feature-item strong{font-size:14px}.feature-item small{font-size:11px;color:#d5d6d9}
+.form-panel{
+ overflow:hidden;width:min(548px,calc(100% - 48px));padding:clamp(30px,3.1vw,50px) clamp(28px,3vw,48px) 28px;
+ border:1px solid rgba(255,255,255,.9);border-top:0;border-radius:30px;
+ background:rgba(255,255,255,.94);box-shadow:0 32px 100px rgba(12,15,20,.32),0 7px 24px rgba(255,132,0,.1);
+}
+.form-panel:before,.form-panel:after{content:"";position:absolute;pointer-events:none}
+.form-panel:before{z-index:0;right:0;top:0;width:108px;height:100px;background:linear-gradient(135deg,#ff9d20,#f27400);clip-path:polygon(100% 0,0 0,100% 100%)}
+.form-panel:after{z-index:0;right:0;top:0;width:84px;height:81px;background:linear-gradient(135deg,#fff 0%,#f0efed 100%);clip-path:polygon(0 0,100% 100%,100% 0);filter:drop-shadow(-4px 4px 5px rgba(0,0,0,.13))}
+.form-content,.form-topline,.form-footer{position:relative;z-index:1}
+.form-content{max-width:430px}
+.form-topline{font-size:11px;margin-bottom:14px}
+.form-content h2{font-size:clamp(35px,3.2vw,46px);font-weight:600}
+.form-subtitle{font-size:14px;margin:6px 0 26px;color:#646a73}
+.form-kicker{font-size:13px}
+.welcome-icon{width:60px;height:60px;border-radius:50%;margin-bottom:18px;background:#fff8f0;border:1px solid #ffd6ad;color:#e97816}
+.field-group{margin-bottom:17px}
+.field-group label,.label-row label{font-size:14px;margin-bottom:8px}
+.input-wrap{height:58px;border-radius:13px;box-shadow:0 4px 12px rgba(28,35,43,.06)}
+.input-wrap input{font-size:14px}
+.input-icon{font-size:18px}
+.options-row{margin:3px 0 20px}
+.remember{font-size:13px!important;color:#4f545b!important}
+.custom-check{width:18px;height:18px;border-radius:4px}
+.remember input:checked+.custom-check:after{left:5px;top:5px}
+.forgot-note{font-size:12px;color:#e87512}
+.submit-button{height:60px;border-radius:999px;background:linear-gradient(100deg,#ff9b16,#f36f00);font-size:17px;box-shadow:0 8px 22px rgba(241,115,0,.28),inset 0 1px rgba(255,255,255,.35)}
+.button-arrow{right:9px;width:39px;height:39px;border-radius:50%;display:grid;place-items:center;background:#fff;color:#ed7205;font-size:24px;font-weight:600}
+.login-or{font-size:12px;margin:19px 0 12px}
+.google-login-button{height:54px;border-radius:999px;box-shadow:0 5px 16px rgba(28,35,43,.07);font-size:14px}
+.google-login-hint{font-size:11px}
+.form-divider{margin:20px 0 12px}
+.security-note{font-size:10px}
+.form-footer{border-top:1px solid rgba(49,53,59,.12);padding-top:15px;margin-top:20px;font-size:10px}
+.alert{font-size:12px}
+@media(max-width:1000px) and (min-width:651px){
+ .brand-top .university-logo{width:92px;height:92px}.brand-top>div{padding-left:20px}
+ .brand-top .brand-name{font-size:21px}.brand-top .brand-caption{font-size:11px}
+ .form-panel{width:min(470px,49vw);padding:30px 27px 23px}
+ .form-content h2{font-size:34px}.form-subtitle{font-size:12px}
+ .field-group label,.label-row label{font-size:12px}
+}
+@media(max-width:650px){
+ .login-layout:before{background-size:150px 125px,190px 130px}
+ .brand-panel{background-position:center}
+ .form-panel{width:min(480px,calc(100% - 30px));padding:23px 22px 20px;margin:16px auto;border-radius:23px}
+ .brand-top .university-logo{width:76px;height:76px}
+ .mobile-brand{gap:13px;margin-bottom:22px}
+ .mobile-brand .university-logo{width:72px;height:72px;padding:0;border:3px solid #fff;object-fit:contain;background:#fff;box-shadow:0 5px 16px rgba(0,0,0,.18)}
+ .mobile-brand strong{font-size:18px!important;letter-spacing:.5px}
+ .form-topline{margin-bottom:10px}.form-content h2{font-size:32px}
+ .form-subtitle{font-size:12px;margin-bottom:19px}
+ .field-group label,.label-row label{font-size:12px}
+ .input-wrap{height:54px}.input-wrap input{font-size:13px}
+ .remember{font-size:11px!important}.forgot-note{font-size:10px}
+ .submit-button{height:54px;font-size:15px}.button-arrow{width:34px;height:34px}
+ .google-login-button{height:49px;font-size:13px}
+ .form-footer{font-size:9px}
+}
+@media(max-height:760px) and (min-width:651px){
+ .form-panel{padding-top:25px;padding-bottom:20px}
+ .form-content h2{font-size:34px}.form-subtitle{margin-bottom:17px}
+ .field-group{margin-bottom:12px}.input-wrap{height:50px}
+ .options-row{margin-bottom:14px}.submit-button{height:52px}
+ .form-divider{margin:14px 0 9px}.form-footer{margin-top:13px}
+}
+.login-layout:before{content:none!important}
+
